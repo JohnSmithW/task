@@ -1,0 +1,8 @@
+*.md
+*.html
+*.json
+*.css
+*.scss
+public/
+.next/
+node_modules/
