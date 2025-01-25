@@ -21,7 +21,6 @@ type FieldType = {
 interface ICustomFormProps {
   onSubmit: FormProps<FieldType>['onFinish'];
   onSubmitFailed: FormProps<FieldType>['onFinishFailed'];
-  onFormReset: FormProps<FieldType>['onReset'];
   fields: FieldType[];
   buttonText: string;
   link?: { text: string; href: string };
@@ -31,7 +30,6 @@ const dateFormat = 'YYYY/MM/DD';
 export const CustomForm: React.FC<ICustomFormProps> = ({
   onSubmit,
   onSubmitFailed,
-  onFormReset,
   fields,
   buttonText,
   link,
@@ -42,7 +40,6 @@ export const CustomForm: React.FC<ICustomFormProps> = ({
       style={{ maxWidth: 600 }}
       onFinish={onSubmit}
       onFinishFailed={onSubmitFailed}
-      onReset={onFormReset}
       autoComplete="off"
     >
       {fields.map(({ name, type = 'text', rules }, index) => (
