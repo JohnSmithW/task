@@ -1,14 +1,14 @@
 import { Form } from 'antd';
 import { CustomForm } from '@/shared/ui/custom-form';
-import { useSignUp } from '../../model/useSignUp';
+import { useForgotPassword } from '../../model/useForgotPassword';
 
-export const SignUpForm: React.FC = () => {
+export const ForgotPasswordForm: React.FC = () => {
   const [form] = Form.useForm();
-  const { onSubmit, onSubmitFailed } = useSignUp();
+  const { onSubmit, onSubmitFailed } = useForgotPassword();
 
   return (
     <CustomForm
-      title="Sign Up"
+      title="Password Reset"
       form={form}
       onSubmit={(event) => {
         onSubmit(event);
@@ -25,15 +25,9 @@ export const SignUpForm: React.FC = () => {
           type: 'text',
           rules: [{ required: true, message: 'Please input your username!' }],
         },
-        {
-          label: 'Password',
-          name: 'password',
-          type: 'password',
-          rules: [{ required: true, message: 'Please input your password!' }],
-        },
       ]}
-      buttonText="Sign Up"
-      links={[{ text: 'Sign In', href: '/signin' }]}
+      buttonText="Reset Password"
+      links={[{ text: 'Sign Up', href: '/signup', style: { paddingTop: 10 } }]}
     />
   );
 };

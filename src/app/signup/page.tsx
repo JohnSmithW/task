@@ -4,7 +4,7 @@ import { SignUpForm } from '@/features/auth';
 import { PageLayout } from '@/widgets/page-layout';
 import { Flex, theme } from 'antd';
 
-export default function Report() {
+export default function SignUp() {
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();

@@ -1,25 +1,27 @@
 'use client';
 
 import { PageLayout } from '@/widgets/page-layout';
-import { theme } from 'antd';
+import { Flex, theme } from 'antd';
+import { PasswordResetForm } from '@/features/auth';
 
-export default function Report() {
+export default function Reset() {
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
 
   return (
-    <PageLayout header={null}>
-      <div
+    <PageLayout>
+      <Flex
+        justify="center"
+        align="center"
         style={{
           background: colorBgContainer,
-          minHeight: 280,
-          padding: 24,
+          padding: 100,
           borderRadius: borderRadiusLG,
         }}
       >
-        reset
-      </div>
+        <PasswordResetForm />
+      </Flex>
     </PageLayout>
   );
 }

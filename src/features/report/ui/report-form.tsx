@@ -1,13 +1,23 @@
+import { Form } from 'antd';
 import { CustomForm } from '@/shared/ui/custom-form';
 import { useReportForm } from '../model/useReportForm';
 
 export const ReportForm: React.FC = () => {
+  const [form] = Form.useForm();
   const { onSubmit, onSubmitFailed } = useReportForm();
 
   return (
     <CustomForm
-      onSubmit={onSubmit}
-      onSubmitFailed={onSubmitFailed}
+      title="Report Form"
+      form={form}
+      onSubmit={(event) => {
+        onSubmit(event);
+        form.resetFields();
+      }}
+      onSubmitFailed={(event) => {
+        onSubmitFailed(event);
+        form.resetFields();
+      }}
       fields={[
         {
           name: 'name',

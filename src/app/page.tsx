@@ -1,7 +1,8 @@
 'use client';
 
 import { PageLayout } from '@/widgets/page-layout';
-import { theme } from 'antd';
+import { Flex, theme } from 'antd';
+import { PageHeader } from '../widgets/header';
 
 export default function Home() {
   const {
@@ -9,17 +10,21 @@ export default function Home() {
   } = theme.useToken();
 
   return (
-    <PageLayout header={null}>
-      <div
+    <PageLayout header={<PageHeader />}>
+      <Flex
+        justify="center"
+        align="center"
         style={{
           background: colorBgContainer,
-          minHeight: 280,
-          padding: 24,
+          flexDirection: 'column',
+          width: '100%',
+          height: '100%',
+          padding: 100,
           borderRadius: borderRadiusLG,
         }}
       >
-        Content
-      </div>
+        <h1>Home</h1>
+      </Flex>
     </PageLayout>
   );
 }
